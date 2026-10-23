@@ -1,82 +1,105 @@
+const precios = [2000,3000,4000,5000,6000];
+const productos = ["Teclado","Monitor","Mouse","Placa de sodino","Placa de video"];
 
-const precios = [1500,2500,3500,4500,5500];
-
-let descuento =10;
-let confirma = "";
-let precioFinal =0;
-let totalProductos = precios.length;
-let total = 0;
-
-let sumaPrecios = 0;
-
-for (let i = 0; i < precios.length; i++) {
-    sumaPrecios = sumaPrecios + precios[i];
-}
-
+let seguir = "";
+let seguirProd = "";
+let descuento = 10;
+let precioFinal = 0;
+let totalProductos = 0;
+let buscado = "";
+let nombre = "";
 let precio = 0;
 let promedio = 0;
+let producto = "";
+let sumaPrecios = 0;
+
 const calcularDescuento = (p, d) => {
-       p = p - p * d / 100;
+    p = p - p * d / 100;
     return p;
 };
-const sumarPrecio = (p) => {
-       total = total + p;
-    return total;
-};
 
-function mostrarMensaje(mensaje, p){
+function mostrarMensaje(mensaje, p) {
     alert(mensaje + p);
 }
 
-function sumarProductos(){
-    totalProductos = totalProductos + 1;
-    return totalProductos;
+function calcularPromedio(totProd, tot) {
+    return tot / totProd;
 }
 
-function calcularPromedio(totProd, tot){
-    return tot/totProd;
+function listarPrecios(arrays) {
+    for (const array of arrays) {
+        alert("Valor encontrado: " + array);
+    }
 }
+
 
 do {
-    precio = parseInt(prompt("Ingresa el precio: "));
+    precio = parseFloat(prompt("Ingrese el precio del producto: "));
     precios.push(precio);
     sumaPrecios = sumaPrecios + precio;
 
-    if (precio > 1000000) 
-        {
-            descuento = 20;
-        }else {
-            descuento = 10;
+    if (precio > 1000000) {
+        descuento = 20;
+    } else {
+        descuento = 10;
     }
+
     precioFinal = calcularDescuento(precio, descuento);
-    mostrarMensaje("El precio con descuento del producto es: " ,precioFinal);
-    totalProductos = sumarProductos();
-    mostrarMensaje("Total de productos ingresados: " , totalProductos);
-    confirma = prompt("Deseas seguir cargando precios? Si/No")
-} while (confirma == "Si");
+    mostrarMensaje("Precio con descuento: $", precioFinal);
 
-let posicion = 0;
-if (precios.includes(2000)) {
-    console.log("El precio de $2000 existe en la lista");
-    console.log("Está en la posición: " + precios.indexOf(2000));
+    seguir = prompt("¿Desea seguir cargando precios? Si/No");
+}  while (seguir.trim().toLowerCase() === "si");
+
+totalProductos = precios.length;
+
+mostrarMensaje("Total de precios ingresados: ", totalProductos);
+
+
+do {
+    producto = prompt("Ingrese el nombre del producto: ");
+    productos.push(producto);
+
+    seguirProd = prompt("¿Desea continuar ingresando productos? Si/No");
+} while (seguirProd.trim().toLowerCase() === "si");
+
+let preguntaUltimo = prompt(
+    "¿Desea mover el último elemento al inicio de la lista? Si/No"
+);
+
+if (preguntaUltimo == "Si") {
+    let ultimo = productos.pop();
+    alert("Se ha movido el ultimo elementos al inicio, el nombre es: " + ultimo)
+    productos.unshift(ultimo);
+}
+
+
+let ordenar = prompt("¿Desea ordenar la lista de productos? Si/No");
+
+if (ordenar == "Si") {
+    productos.sort();
+}
+
+alert("Lista de productos:");
+listarPrecios(productos);
+
+buscado = prompt("Ingrese el nombre del producto que desea reemplazar:");
+nombre = prompt("Ingrese el nombre del nuevo producto");
+
+let posicion = productos.indexOf(buscado);
+
+if (posicion != -1) {
+    productos.splice(posicion, 1, nombre);
 } else {
-    console.log("El precio de $2000 no existe en la lista");
+    alert("El producto no se encuentra en la lista.");
 }
 
-if (precios.length > 1) {
-    precios.splice(1, 1, 5000);
+alert("Lista actualizada de productos:");
+listarPrecios(productos);
+
+if (totalProductos > 0) {
+    promedio = calcularPromedio(totalProductos, sumaPrecios);
+    mostrarMensaje("El precio promedio es: $", promedio);
 }
 
-function listarPrecios() {
-    for (const precio of precios) {
-        console.log("Precio: " + precio);
-    }
-}
-let ultimo = precios.pop();
-console.log("El ultimo precio ingresado: " + ultimo);
-precios.unshift(ultimo);
-
-promedio = calcularPromedio(totalProductos, sumaPrecios);
-mostrarMensaje("El precio promedio de los productos es: ", promedio);
-
-listarPrecios();
+alert("Lista de precios:");
+listarPrecios(precios);
