@@ -1,12 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="./js/main.js"></script>
-    <title>Entrega Nro 6 - Funciones de Orden Superior</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="./js/main.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title>Entrega Nro 7 - DOM</title>
+    </head>
+    <body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+</button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav d-flex w-100">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./pages/productos.html">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+      </li>
+      <li class="nav-item  ml-auto">
+        <a class="nav-link" href="#"><img src="./img/carrito.png" width="55px"></a>
+      </li>
     
-</body>
-</html>
+    </ul>
+  </div>
+</nav>
+
+    <h1 class="h2 m-3">Mi Simulador</h1>
+        <form class="form-inline m-3">
+      
+        <input 
+            type="text" 
+            class="form-control w-25 mr-2" 
+            id="busqueda" 
+            placeholder="Ingrese el producto buscado"
+        >
+
+        <button 
+            type="button" 
+            class="btn btn-primary" 
+            id="btn_buscar">
+            Buscar
+        </button>
+    </form>
+        <p class="bg-success w-25 p-2 m-4">Ingrese su producto</p>
+
+
+    <form class="formulario m-4">
+    <div class="form-group form_nombre">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" class="form-control w-50" id="nombre" aria-describedby="emailHelp" placeholder="Ingrese el nombre">
+   </div>
+    <div class="form-group form_rubro w-50">
+        <label for="rubro">Tamaño</label>
+    <select class="form-control" id="tamano">
+        <option selected>Seleccione el tamaño</option>
+        <option value="1">S</option>
+        <option value="2">M</option>
+        <option value="2">L</option>
+    </select>
+    </div>
+    <div class="form-group form_color">
+        <label for="exampleInputPassword1">Color</label>
+        <input type="text" class="form-control w-50" id="color" placeholder="Rojo-Azul..">
+    </div>
+    <div class="form-group form_precio">
+        <label for="exampleInputPassword1">Precio</label>
+        <input type="text" class="form-control w-50" id="precio" placeholder="$..">
+    </div>
+
+        <div class="form-group form_rubro w-50">
+        <label for="rubro">Rubro</label>
+        <select class="form-control" id="rubro">
+        <option selected>Seleccione el rubro</option>
+        <option value="Pantalones">Pantalones</option>
+        <option value="Remeras">Remeras</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="img">Imagen</label>
+        <input type="text" class="form-control w-50" id="img" placeholder="img/remera.webp">
+    </div>
+
+    <button type="button" class="btn btn-primary">Enviar</button>
+    </form>
+
+    <button class="btn btn-success m-3" id="btn_mostrar_productos">Mostrar Productos</button>
+    <button class="btn btn-warning m-3" id="btn_mostrar_producto_menor_mayor">Mostrar Productos de menor a mayor precio</button>
+    <ul id="listado_productos"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    </body>
+    </html>
