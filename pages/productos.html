@@ -39,10 +39,41 @@
   </div>
 </nav>
 
-        <h1 class="m-4 bg-secondary p-2">Listado de productos</h1>
-    <div class="container_productos d-flex row">
+<div class="d-flex">
+    <h1 class="m-4 p-2">Listado de productos</h1>
+    <form class="form-inline m-3">
 
-   </div>
+       
+        <select name="busquedaCategoria" id="busquedaCategoria" class="form-control">
+            <option value="nada">Seleccione la categoría a filtrar</option>
+            <option value="remeras">Remeras</option>
+            <option value="pantalones">Pantalones</option>
+        </select>
+    </form>
+</div>
+<div class="d-flex align-items-center flex-wrap m-2">
+
+    <h3 class="h4 m-3">Filtro por precios</h3>
+
+    <input name="desde" id="desde"
+        placeholder="Precio mínimo"
+        type="number"
+        class="form-control m-2"
+        style="width: 180px;">
+
+    <input name="hasta" id="hasta"
+        placeholder="Precio máximo"
+        type="number"
+        class="form-control m-2"
+        style="width: 180px;">
+
+    <button class="btn btn-primary m-2 px-4" id="btnBuscarPrecio">
+        Buscar
+    </button>
+
+</div>
+<div class="container_productos d-flex row m-4">
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
